@@ -41,3 +41,4 @@ print_small:
 done:
 	li a7,10
 	ecall
+ret
