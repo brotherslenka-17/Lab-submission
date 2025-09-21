@@ -36,6 +36,7 @@ end_line:
     li a0, 10      # ASCII newline
     li a7, 11
     ecall
+ret
 
     addi s1, s1, 1
     j outer_loop
