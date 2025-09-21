@@ -1,0 +1,49 @@
+.data 
+prompt: .asciz "Enter the quantity in liters: "
+out_pack: .asciz "The full makopokopo are: "
+out_rem: .asciz "The remaining liters are: "
+newline: .asciz "\n"
+
+.text
+.globl main
+main:
+	#prompt
+	la a0, prompt
+	li a7, 4
+	ecall
+	#reads liters
+	li a7, 5
+	ecall
+	mv t0, a0
+	
+	li t1, 20
+	
+	div t2, t0, t1 #qoutient
+	rem t3, t0, t1 #remaider
+	
+	#the number of makopo-kopo
+	la a0, out_pack
+	li a7, 4
+	ecall
+	
+	mv a0, t2
+	li a7, 1
+	ecall
+	
+	la a0, newline
+	li a7, 4
+	ecall
+	
+	#the remaining liters
+	la a0, out_rem
+	li a7, 4
+	ecall
+	
+	mv a0, t3
+	li a7, 1
+	ecall
+	
+	
+	
+	
+	
